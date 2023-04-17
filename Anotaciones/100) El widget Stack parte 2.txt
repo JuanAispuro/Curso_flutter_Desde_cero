@@ -1,0 +1,64 @@
+Alineabamos los elementos en el centro, pero si queremos una posicion personalizada, envolvemos el widget que queremos en un
+(Positioned),si ponemos que el ancho del Positioned es diferente al del container, va a hacer prioridad el positioned que el container
+
+
+Si ponemos botom, la altura del widget sera la de toda la parte, pero eliminando lo que ponemos en top o bottom,
+si definomos top o bottom, definimos la altura del widget hijo.
+El widget positioned nos ayuda a ignorar el aligment y podemos poner la posición que nosotros queremos,
+un wdiget postioned solo puede ser usado dentro de un stack
+
+Se puede utilizar la forma (Positioned.fill) se puede usar cuando quieras que right,top,bottom, left estén en 0.
+En postioned tambien podemos usar números negativos para (right,top,bottom,left) etc.
+
+ - Código de la sección
+```
+class MyStack extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTextStyle(
+      style: TextStyle(color: Colors.black),
+      child: Container(
+        color: Colors.white,
+        child: Center(
+          child: Container(
+            color: Colors.grey,
+            width: 400,
+            height: 500,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  color: Colors.blue,
+                  width: 300,
+                  height: 50,
+                ),
+                Container(
+                  //width: 150,
+                  //height: 150,
+                  color: Colors.green,
+                  height: 100,
+                  child: Text("Green"),
+                ),
+                Positioned(
+                    bottom: -30,
+                    right: -50,
+                    child: FlutterLogo(
+                      size: 100,
+                    )),
+                Positioned(
+                  bottom: 0,
+                  child: Text(
+                    "hi",
+                    textAlign: TextAlign.end,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+```

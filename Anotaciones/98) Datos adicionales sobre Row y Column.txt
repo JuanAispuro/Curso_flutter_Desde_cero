@@ -1,0 +1,28 @@
+Que ocurre si cantamos el ancho del (Center) en la pagina de columna
+
+Por defecto crossAxisAligment utiliza center.
+Los elementos se ajustan de lado izquierdo del container gris usando start,
+cuando quitamos los width los archivos nomas se muestran con la anchura que se ponen.
+Con esto podemos hacer que dos logos esten pegados a la izquierda y uno a la derecha, otra forma es usando el widget Spacer(),
+Lo que hace es agregar todo el espacio disponible.
+
+```
+Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                FlutterLogo(
+                  size: 100,
+                ),
+                Row(
+                  children: [
+                    FlutterLogo(
+                      size: 100,
+                    ),
+                    FlutterLogo(
+                      size: 100,
+                    ),
+                  ],
+                )
+              ])
+```

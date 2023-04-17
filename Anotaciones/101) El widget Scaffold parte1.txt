@@ -1,0 +1,58 @@
+El widget scaffold, demuestra una pantalla basica cuando se usa con MaterialApp,
+
+scaffold solo está disponible en material.dart,
+agregamos la opcion (appBar) la cual, podemos agregarle tanto titulo que recibe un widget o un backgroundColor,
+
+Podemos hacerlo de está manera: 
+```
+ title: Text(
+          'Flutter App',
+          style: TextStyle(color: Colors.black),
+        ),
+```
+o también como: 
+```
+  titleTextStyle: TextStyle(
+          fontSize: 18,
+          color: Colors.black,
+        ),
+        title: Text(
+          'Flutter App',
+        ),
+```
+Tambien en title, puedes agregar un row, para varia infomación.
+
+Usando (SystemUiOverlayStyle) podemos cambiar, el texto, colores etc, del status bar, pero no podemos usar cualquier colr que queramos.
+en IOS solo negro y blanco
+usando SystemUiOverlayStyle podemos usar (staturBarBrightness) de forma que si usamos light sera oscuro y viceversa.
+
+- Código de la sección
+```
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+class MyScaffold extends StatelessWidget {
+  const MyScaffold({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.grey,
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarBrightness: Brightness.dark,
+        ),
+        titleTextStyle: TextStyle(fontSize: 18, color: Colors.black),
+        title: Row(mainAxisSize: MainAxisSize.min, children: [
+          Text("Flutter"),
+          Text(
+            "App",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          )
+        ]),
+      ),
+    );
+  }
+}
+
+```

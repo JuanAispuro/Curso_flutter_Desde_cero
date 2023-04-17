@@ -1,0 +1,12 @@
+Widget que permite posicionar elementos uno sobre el otro.
+Creamos el archivo stack.dart, luego lo cambiamos del main.
+
+Stack hace funcion de la lista children
+
+Cuando hacemos esto, vemos que si ponemos dos container con el mismo width y height se super ponen juntos, por lo que si ponemos uno verde y uno rojo,
+se muestra el rojo, el orden depende de como se agregan en la lista, siempre el primer elemento sera el que esté atras, por lo que el de abajo se muestra hasta enfrente.
+
+Diferencias entre usar aligmentDirecional.topStart y aligment.topleft.
+
+Envolvemos todo en un (Directionality) para acomodar el texto.
+Utilizamos aligmentDirecional Para de manera usar diferentes formas por si el texto se vea de diferentes formas,
