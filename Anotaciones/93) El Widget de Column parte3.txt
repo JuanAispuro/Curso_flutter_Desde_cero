@@ -1,0 +1,77 @@
+Elimnar los textos y el spacer, dejando con los 2 container, Si queremos que el (Container) de color rosado,
+abarque todo el contorno disponible, restandole la altura del container azul,
+envolvemos el container dentro del widget (Expanded), agarra todo el espacio del widget exceptuando el otro que está
+La altura del rosa, agarra la altura del expanded por lo que el orden no afecta.
+
+con mainaxissize.min la altura es la de los hijos,
+si volvemos a encerrar el widget del container rosa en el Expanded, va a ignorar el mainaxissize.
+
+El widget (Expanded) solo puede ser usando dentro de Column o de Row.
+
+Si envolvemos todo dentro de un expanded tenemos un error, diciendo que el expanded no está en el lugar correcto.
+
+Si tenemos multiples expanded, el espacio del primero se van a dividir entre el nuevo Expanded y el viejo,
+teniendo una altura equitativa,
+cuando se tiene más de un expanded se puede usar la clase (flex), la cual hace que la altura del 
+Expanded elegido sea el doble de la que tenia, restandole a los demas.
+
+Eliminamos el container de color azul, amarillo y el Expanded de color Blanco, dejando solo el rosa y rojo.
+
+Cuando ambos parametros de flex son iguales, no tiene caso por que sera como si no lo tuvieran,
+por lo que al rosa le damos 1.
+Cambiamos el color de rojo a azul.
+
+- Código de la sección 
+```
+
+class MyColumn extends StatelessWidget {
+  const MyColumn({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTextStyle(
+      style: TextStyle(color: Colors.black),
+      child: Container(
+          color: Colors.white,
+          padding: EdgeInsets.symmetric(vertical: 55),
+          child: Center(
+            child: Container(
+              color: Colors.grey,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  //SizedBox(height: 20),
+
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      height: 100,
+                      color: Colors.pinkAccent,
+                    ),
+                  ),
+
+                  Expanded(
+                    flex: 3,
+                    child: Container(
+                      height: 100,
+                      color: Colors.blue,
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      height: 100,
+                      color: Colors.yellow,
+                    ),
+                  ),
+                  //SizedBox(height: 100),
+                ],
+              ),
+            ),
+          )),
+    );
+  }
+}
+
+```
+

@@ -1,0 +1,48 @@
+Errores de tipo overflow, son erros cuando uno o más widgets no caben dentro de un Container, SizedBox, etc
+
+Usando un ejemplo eliminaremos todos los elementos, solo con el container de color azul.
+
+El container de color azul, no cabe por 22 pixeles a la derecha, si envolvemos el row dentro de un
+(SizedBox) y definimos el ancho de 300, si queremos que el SizedBox este alineado a la izquierda, quitamos el center
+y ponemos aligment.centerleft,
+Cuando usamos un text y se sobrepasa podemos usamos un SizedBox para que se logre un salto de linea,
+tambien podemos usar un (Expanded) 
+
+- Código de la sección
+
+```
+class MyRow extends StatelessWidget {
+  const MyRow({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTextStyle(
+      style: const TextStyle(color: Colors.black),
+      child: Container(
+          color: Colors.white,
+          alignment: Alignment.centerLeft,
+          child: Container(
+            color: Colors.grey,
+            width: 300,
+            child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.blue,
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  const Expanded(
+                    child: Text("DATA"),
+                  ),
+                ]),
+          )),
+    );
+  }
+}
+
+```

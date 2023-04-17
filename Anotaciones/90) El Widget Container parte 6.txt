@@ -1,0 +1,100 @@
+Las dimensiones del container se miden con width y height pero estos no funcionan todo el rato.
+
+Quitamos el box decoration y el container center, pero en el container grande ponemos aligmenent.center
+
+(Sizedbox) permite definir ancho y alto nomas, es una caja transparente con un ancho y alto,
+está consume menos recursos, por que nomas usa ancho y alto,
+La prioridad del Sizedbox va por encima del container pr lo que para evitar esto, se tiene que 
+envolver el container en un center, cuando un container no sabe posicionarse, agarrara la del widget padre más cercano que tenga altura y anchura.
+
+Otra forma de usar un (Padding ) es usar (margin), el cual es un margen igual que padding usando edgeinsets
+si ponemos top, toma el valor de 20 pero desde el centro.
+
+Si quitamos el width se expandera completamente para eso podemos usar edgeinsets.symmetric
+si quitamos el height lo mismo pasaria que se expandera todo.
+Si quitamos el aligmente: center, calcula el ancho y alto del texto y le suma lo de padding
+
+Cuando no se tiene aligmenent se calculara de manera automatica
+
+- Código de la sección 
+
+```
+
+class MyContainer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      alignment: Alignment.center,
+      child: DefaultTextStyle(
+        style: TextStyle(),
+        child: Container(
+          //width: 200,
+          //height: 200,
+          color: Colors.red,
+          margin: EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: 50,
+          ),
+          // margin: EdgeInsets.only(
+          //   //left: 30,
+          //   //top: 20,
+          //   right: 50,
+          //   bottom: 100,
+          // ),
+          padding: EdgeInsets.symmetric(
+            horizontal: 30,
+            vertical: 10,
+          ),
+          // alignment: Alignment.center,
+          /*
+          decoration: BoxDecoration(
+              gradient: RadialGradient(
+                colors: [
+                  Colors.white,
+                  Colors.yellow,
+                  Colors.blue,
+                ],
+                stops: [
+                  0.6,
+                  0.95,
+                  1,
+                ],
+                // gradient: LinearGradient(
+                //   colors: [
+                //     Colors.yellow,
+                //     Colors.blue,
+                //     Colors.red,
+                //   ],
+                //   begin: Alignment.topCenter,
+                //   end: Alignment.bottomCenter,
+                //   stops: [
+                //     0.5,
+                //     0.75,
+                //     1,
+                //   ],
+              ),
+              color: Colors.white,
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.blue.withOpacity(.5),
+                  blurRadius: 10,
+                  offset: Offset(-5, -3),
+                  //spreadRadius: 100,
+                )
+              ]),
+              */
+          child: Text(
+            "Juan Armando",
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+```

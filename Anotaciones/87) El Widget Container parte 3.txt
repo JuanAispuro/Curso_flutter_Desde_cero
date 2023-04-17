@@ -1,0 +1,4 @@
+Haremos uso de la clase (decoration) de container, usando (color) y 
+(borderRadius),
+Siempre por default el Container sera un rectangulo,
+Con el box.shape, le podemos dar la forma de un rectangulo o de un circulo

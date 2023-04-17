@@ -1,0 +1,53 @@
+Agregaremos sombras al container
+
+Se le agrega a la clase (decoration: Boxdecoration), de la cual usaremos el apartado de
+ (boxShadow), si se pone de diferentes colores, el que está arriba tiene más prioridad.
+
+ (spreedRadius) cuando debe expandir la sombra, afuera del container,
+ para (offset) se manda dos parametros ( X y Y )
+
+
+- Código de la sección 
+ ```
+class MyContainer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      child: DefaultTextStyle(
+        style: TextStyle(),
+        child: Center(
+          child: Container(
+            width: 200,
+            height: 200,
+            padding: EdgeInsets.symmetric(
+              horizontal: 30,
+              vertical: 10,
+            ),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.red.withOpacity(.9),
+                      blurRadius: 3,
+                      offset: Offset(0, -13)
+                      //spreadRadius: 100,
+                      )
+                ]),
+            child: Text(
+              "Juan Armando",
+              style: TextStyle(
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+ ```

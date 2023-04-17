@@ -1,0 +1,40 @@
+Un container puede definir sus medidas con (height) y (width),
+la dirección con (aligment) y el color con (color),
+(padding) se usa con edgeInsets, lo que hace es que separa del borde de la pantalla el widget
+Es un margen interno
+
+Con el uso de (Padding: edgeInsets.Only()) podemos poner individualmente tanto [top,left,right,bottom] la distancia
+Para usar el mismo valor en todos, seria (Padding: edgeInsets.all(value)).
+
+Con el margen interno de forma horizontal o vertical es con (Padding: edgeInsets.symmmetric)
+
+- Código de la sección
+```
+import 'package:flutter/material.dart';
+
+class MyContainer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTextStyle(
+      style: TextStyle(),
+      child: Center(
+        child: Container(
+          width: 200,
+          height: 200,
+          color: Colors.white,
+          padding: EdgeInsets.symmetric(
+            horizontal: 30,
+          ),
+          alignment: Alignment.topRight,
+          child: Text(
+            "Juan Armando",
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+```

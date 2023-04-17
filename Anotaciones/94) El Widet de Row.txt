@@ -1,0 +1,55 @@
+Tambien su estructura es parecida a Columnn pero en vez de arriba de cada uno los pone a su lado,
+por lo que pondres dos container uno de color rojo, azul, amarillo,
+Si queremos que esten centrados usamos MainAxisAligment, si queremos que estén separados completamente,
+usamos spaceBetween o spaceAround para que el espacio no este tan fuerte,
+Si queremos que estén alineados al inicio del container amarillo, seria con el
+(crossAxisAligment) con esto haremos que independiente del tamano se alinean de la misma forma,
+si usamos (crossAxisAligment.stretch), tratara de agarrar toda la altura posible del container.
+Cuando usamos (MainAxisSize: MainAxisSize.min) y no se tiene un height de un widget padre, entonces va a tomar 
+la altura maxima de los widget hijos en caso de este ejemplo seria la altura de 100 del container amarillo,
+Si queremos que el container rojo agarre todo el espacio contando al amarillo y azul, usaremos un expanded
+
+- Código de la sección
+
+```
+class MyRow extends StatelessWidget {
+  const MyRow({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        color: Colors.white,
+        child: Center(
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.red,
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.blue,
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.yellow,
+                  ),
+                )
+              ]),
+        ));
+  }
+}
+```

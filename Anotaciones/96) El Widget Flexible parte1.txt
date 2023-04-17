@@ -1,0 +1,57 @@
+El widget flexible se puede usar para prevenir los errores overflow, usaremos una pagina web para esta forma
+
+Quitamos el texto y el sizedbox y agregamos un container de color rojo
+
+Si el container de color rojo junto con el color azul, no cambie al momento de cambiar la anchura,
+usaremos en vez de un expanded, usaremos uno de tipo (Flexible), por lo que si el contenido ya no cabe en 
+pantalla, ignorara el ancho de color rojo y usare el disponible, funciona igualmente con el texto,
+(flexible) tiene Flex y Fit,
+usaremos (fit: FlexFit.Tight),
+dependiendo del valor de fit, el elemento hijo tomara el espacio restante o no, esa es la diferencia entre 
+(Flexible) y (Expanded).
+
+- Código de la sección
+```
+class MyRow extends StatelessWidget {
+  const MyRow({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTextStyle(
+      style: const TextStyle(color: Colors.black),
+      child: Container(
+          color: Colors.white,
+          alignment: Alignment.centerLeft,
+          child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Flexible(
+                  //flex: 2,
+                  fit: FlexFit.tight,
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    color: Colors.blue,
+                  ),
+                ),
+                Flexible(
+                    //flex: 3,
+                    child: Container(
+                  width: 170,
+                  height: 50,
+                  color: Colors.red,
+                )),
+                Flexible(
+                    flex: 3,
+                    child: Container(
+                      width: 320,
+                      height: 50,
+                      color: Colors.yellow,
+                    ))
+              ])),
+    );
+  }
+}
+
+```

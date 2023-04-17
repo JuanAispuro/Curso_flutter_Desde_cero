@@ -1,0 +1,40 @@
+Las lineas azules, simplemente son advertencias.
+
+
+Flutter_lints: Resulta malas practicas, codigo más legible, ayudas, ect, en general ayuda el código y previene malas practicas
+
+para evitar que muestre eso: 
+Vamos a analysis_options.yaml, vamos a rules y hacemos que la regla nos quite esta regla
+ejemplo prefer_const_constructors: false
+
+Por defecto, el texto está alineado a la izquierda, para cambiar el align seria afuera del textStyle
+
+TextAlign.start lo pone a al izquierda, TextAlign.end lo pone a la derecha.
+Por que utilizar start y end, en lugar de right y left,
+Estos están ligados al widget Directionality
+Ocupa como requerido la función textDirection la cual se le da valor como
+textDirection: TextDirection.ltr o rtl,
+Que por ejemplo TextDirection.ltr significa left to right.
+
+Código de la parte 2
+```
+ return const MaterialApp(
+        home: Center(
+      child: DefaultTextStyle(
+        style: TextStyle(),
+        child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: Text(
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+            style: TextStyle(
+              fontSize: 50,
+              color: Colors.white,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
+    ));
+```
+
+Alfinal se le elimino el Directionality, por que nomas se uso para desmotración

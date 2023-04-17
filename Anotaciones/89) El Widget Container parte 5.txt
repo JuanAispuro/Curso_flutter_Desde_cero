@@ -1,0 +1,83 @@
+Como definir gradientes en el container, usando el (boxDecoration) y la clase Gr*gradient)
+
+Para (gradient) usamos gradient: LinearGradient(
+    colors [ 
+        Colors.blue, Colors.red,
+    ]
+)
+
+(stops) tiene que tener la misma cantidad de valores que los colores, que se tienen.
+Si se quita un número de elementos del stops, entonces va a fallar, por que tiene que tener el mismo numero
+stops, tambien solo puede usar valores entre [0 y 1], que es por porcientos, de manera que seria
+tipo de 0.6 el 60%
+
+El siguiente gradiente seria  (gradient: RadialGradient)
+
+- Código de la sección
+```
+class MyContainer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      child: DefaultTextStyle(
+        style: TextStyle(),
+        child: Center(
+          child: Container(
+            width: 200,
+            height: 200,
+            padding: EdgeInsets.symmetric(
+              horizontal: 30,
+              vertical: 10,
+            ),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                gradient: RadialGradient(
+                  colors: [
+                    Colors.white,
+                    Colors.yellow,
+                    Colors.blue,
+                  ],
+                  stops: [
+                    0.6,
+                    0.95,
+                    1,
+                  ],
+                  // gradient: LinearGradient(
+                  //   colors: [
+                  //     Colors.yellow,
+                  //     Colors.blue,
+                  //     Colors.red,
+                  //   ],
+                  //   begin: Alignment.topCenter,
+                  //   end: Alignment.bottomCenter,
+                  //   stops: [
+                  //     0.5,
+                  //     0.75,
+                  //     1,
+                  //   ],
+                ),
+                color: Colors.white,
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.blue.withOpacity(.5),
+                    blurRadius: 10,
+                    offset: Offset(-5, -3),
+                    //spreadRadius: 100,
+                  )
+                ]),
+            child: Text(
+              "Juan Armando",
+              style: TextStyle(
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+```

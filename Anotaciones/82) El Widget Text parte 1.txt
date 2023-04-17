@@ -1,0 +1,32 @@
+Borramos todo excepto el material app,
+
+Cambiamos el materialapp, por un text, pero hay un error de posicionamiento,
+
+Muestra el arbol de los widget, por lo que tenemos que poner MaterialApp coomo principal,
+luegpe en "home" ponemos que el widget de text,
+Para alinear el texto al centro del contenedor el widget, ponemos (CENTER) como widget principal.
+
+Dentro del widget de text, existe la forma de darle estilos, está agarrando la función de (style)
+
+TextStyle define el estilo del texto,
+
+Para el color se suele usar (Colors.) y se escoje los colores definidos que se encuentran en material app.
+
+Para eliminar el subrayado usamos (decoration : TextDecoration.none),
+
+Envolvemos el Text en un DefaultTextStyle
+
+- Código de la sección
+```
+return const MaterialApp(
+        home: Center(
+      child: DefaultTextStyle(
+        style: TextStyle(),
+        child: Text("Hello",
+            style: TextStyle(
+                fontSize: 50,
+                color: Colors.white,
+                decoration: TextDecoration.lineThrough)),
+      ),
+    ));
+```

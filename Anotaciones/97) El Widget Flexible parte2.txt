@@ -1,0 +1,88 @@
+Quitamos los flexibles y usamos el widget de (FlutterLogo), lo que hace es renderizar el logo de Flutter
+Para que sea dinamico seria guardar los FlutterLogo en (flexible), Cuando se usa flexible entre varios mismos widgets
+aunque tengan altura diferente, el que tenga el [flex] más alto sera el más grande visualmente.
+
+Regresamos al archivo Column.dart
+Cuando un container esta en un Column va a agarrar la altura del widget hijo,
+si queremos que el container sea todo la zona seria 
+con un aligment, pero si no se quiere usar el aligment seris usar (width : double.infinity), lo que hara 
+sera tratar de usar todo el width posible, del container mayor.
+
+- Código de la sección en Columna
+```
+
+class MyColumn extends StatelessWidget {
+  const MyColumn({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTextStyle(
+      style: TextStyle(color: Colors.black),
+      child: Container(
+          color: Colors.white,
+          padding: EdgeInsets.symmetric(vertical: 55),
+          child: Center(
+            child: Container(
+              color: Colors.grey,
+              width: 300,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Flexible(
+                    child: FlutterLogo(
+                      size: 200,
+                    ),
+                  ),
+                  Flexible(child: FlutterLogo(size: 300))
+                ],
+              ),
+            ),
+          )),
+    );
+  }
+}
+
+```
+
+- Código de la sección en Row
+```
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
+import 'package:flutter/material.dart';
+
+class MyRow extends StatelessWidget {
+  const MyRow({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTextStyle(
+      style: const TextStyle(color: Colors.black),
+      child: Container(
+          color: Colors.white,
+          alignment: Alignment.centerLeft,
+          child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Flexible(
+                  child: FlutterLogo(
+                    size: 200,
+                  ),
+                ),
+                Flexible(
+                  flex: 2,
+                  child: FlutterLogo(
+                    size: 250,
+                  ),
+                ),
+                Flexible(
+                  child: FlutterLogo(
+                    size: 300,
+                  ),
+                )
+              ])),
+    );
+  }
+}
+
+```

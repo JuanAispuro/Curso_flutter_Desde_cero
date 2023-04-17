@@ -1,0 +1,49 @@
+Permite posicionar elementos uno debajo del otro
+
+(children) es una Lista de tipo widget
+
+Fontweight es el peso del texto.
+
+Igual que el container va agarrar las medidas de todo el espacio del widget padre más cercanop
+
+- Código de la sección
+
+```
+import 'package:flutter/material.dart';
+
+class MyColumn extends StatelessWidget {
+  const MyColumn({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTextStyle(
+      style: TextStyle(color: Colors.black),
+      child: Container(
+          color: Colors.white,
+          padding: EdgeInsets.symmetric(vertical: 55),
+          child: Center(
+            child: Container(
+              color: Colors.grey,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text("Hello"),
+                  Text(
+                    "World",
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Container(height: 100, color: Colors.pinkAccent),
+                  Container(height: 100, color: Colors.blueAccent),
+                ],
+              ),
+            ),
+          )),
+    );
+  }
+}
+
+```

@@ -1,0 +1,38 @@
+Creamos una nueva carpeta de lib llamada widgets, creamos un archivo llamado text.dart, moviendo el código del main Text hacia ese,
+desde el center.
+
+
+En el archivo Text.dart
+Creamos una clase llamada Mytext y agregamos el widget de Text,
+Luego en el main, retornamos en el (home) la clase de MyText(),
+
+Creamos el archivo container.dart
+
+- Código de container.dart
+```
+import 'package:flutter/material.dart';
+
+class MyContainer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTextStyle(
+      style: TextStyle(),
+      child: Center(
+        child: Container(
+          width: 200,
+          height: 200,
+          color: Colors.white,
+          alignment: Alignment.center,
+          child: Text(
+            "Juan Armando",
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+```

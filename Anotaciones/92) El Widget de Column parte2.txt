@@ -1,0 +1,61 @@
+MainAxisAligment
+Lo que hace es que esté centrados o lo más separado posibles los unos con los otros,
+
+Si los elementos quieren que esten separados usamos un MainAxisAligment.spaceBetween,
+Para que la separación no sea tan excesiva se puede usar spaceEvenly o spaceAround,
+
+Si quiero tener un poco de espacio entre mi texto World y el container de texto rosado, usariamos 
+margin o podemos usar un widget (Sizedbox).
+Si usamos el mainxAxisSize, entonces no tendria efecto el usar MainAxisAligment,
+tampoco es tan necesario el tener mainxAixsSize: max, debido a que ese es el valor predeterminado.
+
+Cuando un column está dentro de otro column se forma de manera dinamica,
+Envolvemos en un (column) los text y dentro de otro (column) envolvemos los containers de colores.
+
+Otra forma de que los textos estén lo más posible separados de los container, seria usando el 
+widget de (spacer) que solo puede ser usando en los widget de (Row) y (Column),
+spacer rellena el espacio disponible del column.
+
+- Código de la sección
+```
+class MyColumn extends StatelessWidget {
+  const MyColumn({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTextStyle(
+      style: TextStyle(color: Colors.black),
+      child: Container(
+          color: Colors.white,
+          padding: EdgeInsets.symmetric(vertical: 55),
+          child: Center(
+            child: Container(
+              color: Colors.grey,
+              child: Column(
+                children: [
+                  Text("Hello"),
+                  Text(
+                    "World",
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Spacer(),
+                  //SizedBox(height: 20),
+                  Container(
+                    height: 100,
+                    color: Colors.pinkAccent,
+                  ),
+                  //SizedBox(height: 100),
+                  Container(height: 100, color: Colors.blueAccent),
+                ],
+              ),
+            ),
+          )),
+    );
+  }
+}
+```
+ 

@@ -1,0 +1,11 @@
+Cuando tengamos un texto grande, se recomienda usar multiples lineas, no solo 1
+se mueve con las ''' y ''' para multiples lineas, pero no es muy muy recomendado,
+Lo más recomendado seria ponelo en dos lineas movidas
+            "Lorem Ipsum is simply dummy text "
+            " of the printing and typesetting industry. ",
+bajandole el fontSize: a 20, con estó logramos que todo el texto se rebaje a solo 2 lineas
+
+Usando (maxLines) mostramos que solo se puede usar una linea para todo el texto, 
+(overflow) agrega 3 puntitos para decir que el texto tiene continuación pero solo se le agrega 3 puntitos
+
+Si el texto acaba de manera correcta con las maxLines, entonces el overflow no se activa.
