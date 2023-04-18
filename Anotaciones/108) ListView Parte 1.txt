@@ -1,0 +1,15 @@
+Usamos Scaffold y dentro del Scaffold usamos el Widget ListView
+
+Este widget podemos hacer croll y juntarlos como si fuera una columna
+
+El widget safeArea nos permite evitar que el contenido este por detras del status bar y por encima del menu inferior
+
+Usamos (padding: EdgeInsets.zero) para que no tengan ningun padding.
+
+Mejor ListView que el singlechildscrollview para evitar tanto codigo
+igual que singlechildscrollview usa (keyboardDissmissBehavior) para que al hacer scroll se vaya el teclado.
+
+Tenemos un error si metemos el ListView dentro de un column, pero se soluciona si metemos el ListView dentro de un expanded
+
+
+Marco error en el expanded del ListView

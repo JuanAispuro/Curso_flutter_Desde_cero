@@ -1,5 +1,13 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+Usamos el parametro (body),
+No tenemos el error del estilo, por que de eso se encarga el Scaffold todo texto que usemos en el drawe o en el body, tendran un estilo por defecto.
+El width: double.infity hara que abarque toda el ancho posible del widget.
+Usamos el parametro (extendsbodybehindappbar) otro parametro es (extendBody) por que el contenido del body está por detras del appBar, por defecto viene en falso, asi que no es recomendado definirlo hasta que lo usemos.
+Si nomas vamos a usar lo de margin y padding es recomendado no usar un Container, sino usar un (Padding).
+Utilizamos el parametro (reziseToavoidBottomInset) esta en true, pero es recomendable dejarlo en false, debido a que las dimensiones no van a cambiar cuando uno quiera escribir.
+En appbar Usamos el parametro (Actions: [])
 
+- Código de la sección
+```
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -92,3 +100,5 @@ class MyScaffold extends StatelessWidget {
     );
   }
 }
+
+```

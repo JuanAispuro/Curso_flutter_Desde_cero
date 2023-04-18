@@ -1,0 +1,74 @@
+Es un widget que nos permite evitar los errores de overflow en los widget.
+
+Usamos scaffold como widget principal y column en el body.
+Generaremos 20 container.
+Usaremos la propiedad de children llamada (List.generate).
+Para que al aparecer sea en el ultimo valor utilizamos el parametro (reverse) = true,
+Tambien podemos poner un singlechildscrollview de manera horizontal usando un (row), para evitar el error de overflow
+usaremos tambien singlechildscrollview, para que sea de manera horizontal usamos (ScrollDirection), siempre este ScrollDirection
+viene de manera vertical,
+Para cambiar el resorte del código usamos el parametro (physics) .
+Si queremos el efecto de resorte 
+ physics:
+    BouncingScrollPhysics(), // Para que tenga efecto de rebote.
+    physics: AlwaysScrollableScrollPhysics(), // Este es para que se adapte a la plataforma de que si es android no y iphone si
+
+Si queremos que no se pueda hacer scroll es con physics: (NeverScrollableScrollPhysics()).
+Para que sea funcional el widget padre debe tener una altura.
+
+- Código de la sección
+```
+
+import 'package:flutter/material.dart';
+
+class MySingleChildScrollView extends StatelessWidget {
+  const MySingleChildScrollView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+                height: 100,
+                child: Row(children: [
+                  FlutterLogo(size: 90),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                          children: List.generate(
+                              18,
+                              (index) => Container(
+                                    color: Colors.primaries[index],
+                                    height: 100,
+                                    width: 100,
+                                    alignment: Alignment.center,
+                                    child: Text("$index"),
+                                  ))),
+                    ),
+                  ),
+                ])),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                    children: List.generate(
+                        18,
+                        (index) => Container(
+                              color: Colors.primaries[index],
+                              height: 100,
+                              alignment: Alignment.center,
+                              child: Text("$index"),
+                            ))),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+```

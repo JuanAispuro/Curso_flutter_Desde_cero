@@ -1,11 +1,17 @@
+// ignore_for_file: unused_import
+
 import 'package:curso_flutter_desde_cero/Widgets/Text.dart';
 import 'package:curso_flutter_desde_cero/Widgets/column.dart';
 import 'package:curso_flutter_desde_cero/Widgets/container.dart';
 import 'package:curso_flutter_desde_cero/Widgets/row.dart';
 import 'package:curso_flutter_desde_cero/Widgets/scaffold.dart';
+import 'package:curso_flutter_desde_cero/Widgets/single_scroll_view.dart';
 import 'package:curso_flutter_desde_cero/Widgets/stack.dart';
 import 'package:curso_flutter_desde_cero/Widgets/stack.dart';
 import 'package:flutter/material.dart';
+
+import 'Widgets/ListView.dart';
+import 'Widgets/safe_area.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +23,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: MyScaffold());
+    return MaterialApp(home: MyListView());
   }
 }
