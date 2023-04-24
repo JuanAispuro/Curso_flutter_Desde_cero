@@ -1,0 +1,33 @@
+Usaremos una variante del widget (listview) que nos permite renderizar elementos solo cuando es necesario
+Se llama (ListView.builder)
+
+- Código 
+```
+import 'package:flutter/material.dart';
+
+class MyListViewBuilder extends StatelessWidget {
+  const MyListViewBuilder({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: ListView.builder(
+        itemBuilder: (_, int index) {
+          return Container(
+            height: 300,
+            alignment: Alignment.center,
+            color: Colors.green,
+            margin: const EdgeInsets.all(5),
+            child: const FlutterLogo(),
+          );
+        },
+        itemCount: 1000,
+      ),
+    );
+  }
+}
+
+```
+Tambien está 
+ListView.separated

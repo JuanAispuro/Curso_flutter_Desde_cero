@@ -1,0 +1,54 @@
+Flutter por defecto utiliza la fuente de roboto.
+
+
+Vamos a la pagina googlefonts.com para descargar las fuentes nunito y titilium, luego de descargarlas creamos la carpeta,
+assets, luego fonts y creamos dos carpetas más una para cada fuente, luego vamos al pubspec.yaml 
+
+Agregamos esto al pubspec
+  fonts: 
+    - family: Nunito Black
+      fonts: 
+       - asset: assets/fonts/nunito/Nunito-Black.ttf
+       - asset: assets/fonts/nunito/Nunito-BlackItalic.ttf
+         style: italic
+
+Recordar que para el .yaml es muy necesario que al identación sea la correcta,
+Luego detenemos la aplicación y la volvemos a correrla.
+
+Ahora despues de hacer eso, regresamos a custom_font.dart el archivo creado para esta sección y agregamos lo siguiente en el texto que queremos
+-   style: TextStyle(
+                fontFamily: 'Nunito Black', fontStyle: FontStyle.italic),
+
+- Código de la sección
+
+```
+import 'package:flutter/material.dart';
+
+class MyCustomFont extends StatelessWidget {
+  const MyCustomFont({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+          child: ListView(
+        padding: const EdgeInsets.all(20),
+        children: const [
+          Text(
+            '''
+Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
+Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor 
+(N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera
+que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno
+en documentos electrónicos, quedando esencialmente igual al original.
+''',
+            style: TextStyle(
+                fontFamily: 'Nunito Black', fontStyle: FontStyle.italic),
+          )
+        ],
+      )),
+    );
+  }
+}
+
+```

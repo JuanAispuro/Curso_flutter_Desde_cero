@@ -1,0 +1,5 @@
+Creamos el archivo cusotm_icons.dart, donde vamos a probar los diferentes icnnes que existen.
+
+Ahora para usar el apartado de cupertino podemos usar los iconos de estilo cupertino
+
+api.flutter.dev para saber cuales son los icons de cupertino

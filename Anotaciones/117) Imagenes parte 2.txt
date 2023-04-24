@@ -1,0 +1,38 @@
+Buscamos una imagen nueva, pero solo el enlace.
+
+Tenemos que dar de alta el dispositivo androrid la posibilidad de tener intenert
+
+- Código de la sección 
+```
+import 'package:flutter/material.dart';
+
+class MyImagenes extends StatelessWidget {
+  const MyImagenes({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Center(
+      child: Container(
+        width: 350,
+        color: Colors.grey,
+        height: 500,
+        child: Image.network(
+            'https://static.vecteezy.com/system/resources/previews/020/118/322/original/harrypotter-logo-free-download-free-vector.jpg',
+            loadingBuilder: (_, child, event) {
+          if (event == null) {
+            return child;
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          ); //para poner una animación de cargando.,)
+        }
+            // 'assets/images/Star_Wars_Logo.svg.png',
+            //fit: BoxFit.cover,
+            ),
+      ),
+    ));
+  }
+}
+
+```

@@ -1,0 +1,40 @@
+Para poder descargar iconoces gratuitos se recomienda la pagina flaticon.es.
+
+otro sitio seria svgrepo.com 
+
+Las imagenes multi color no se podran convertir a icon, solo imagenes de 1 solo color.
+
+Descargaremos svg y nos metemos a la pagina fluttericon.com
+
+Como la clase que nos genero fluttericon.com
+
+Le daremos un alias a esa clase ejemplo: 
+import '../Icons/custom_icons_icons.dart' as alias;
+
+Si no queremos usar el alias, renombramos la clase
+
+- Código de la sección 
+```
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import '../Icons/custom_icons_icons.dart';
+
+class MyIcons extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+        child: Icon(
+          CustomIcons.like,
+          size: 50,
+          color: Color.fromARGB(255, 56, 3, 250),
+          semanticLabel: 'Icono reloj',
+        ),
+      ),
+    );
+  }
+}
+
+
+
+```

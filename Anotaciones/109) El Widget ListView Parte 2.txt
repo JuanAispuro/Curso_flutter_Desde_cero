@@ -1,0 +1,37 @@
+Se puede usar el parametro (shrinkWrap) igual a true para evitar el error de la altura.
+
+Despues de agregar el container verde, marca error de overflow, por lo que cambiaremos el widget de (Column) por el widget de ListVIew,
+Si queremos gran cantidad de elementos no se recomienda usar ListView con el parametro children, como maximo usando 50.
+Creamos una segunda pagina con un listview al rededor de 1000 elementos.
+
+Desde la pagina del listview normal vamos a navegar hacia la nueva.
+
+En listview.dart creamos un boton para pasar a lisviewbuilder
+
+- Código
+```
+
+import 'package:flutter/material.dart';
+
+class MyListViewBuilder extends StatelessWidget {
+  const MyListViewBuilder({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(),
+        body: ListView(
+          children: List.generate(10, (index) {
+            return Container(
+              height: 100,
+              alignment: Alignment.center,
+              color: Colors.green,
+              margin: const EdgeInsets.all(5),
+              child: const FlutterLogo(),
+            );
+          }),
+        ));
+  }
+}
+
+```

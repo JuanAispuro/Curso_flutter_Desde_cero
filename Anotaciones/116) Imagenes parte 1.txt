@@ -1,0 +1,47 @@
+Creamos el archivo (my_imagenes.dart) luego creamos una carpeta en assets, llamada (images).
+
+Agregamos la imagen al pubspec.
+
+Hay diferentes tipos de Image, son:
+
+- asset: Los que tenemos en la carpeta assets.
+- file: Los que se encuentran en un archivo.
+- memory: Una imagen que la convertimo a bytes.
+- Network: Los que se encuentran en linea mediante un link.
+
+En este curso nomas usaremos la de assets o la a Network, podemos poner la altura o la anchura de la imagen.
+
+Para que la imagen tenga toda la altura posible sera con el parametro (fit) ejemplo (BoxFit.fill), para que se deforme,
+otro ejemplo seria (fitHeight) para que se estire hasta que llegue a la altura puesta, tambien existe lo mismo pero para width
+(fitWidth), Cuando usamos cover la imagen se va a escalar pero no deformara.
+
+Cuando se pone un (container) fuera de la imagen, las dimesiones de la imagen ya no seran necesarias, por que se tomaran las del Container.
+
+- Código de la sección
+
+```
+import 'package:flutter/material.dart';
+
+class MyImagenes extends StatelessWidget {
+  const MyImagenes({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Center(
+      child: Container(
+        width: 350,
+        color: Colors.grey,
+        height: 500,
+        child: Image.asset(
+          // 'assets/images/Star_Wars_Logo.svg.png',
+          'assets/images/Gameofthroneslogo.jpg',
+
+          //fit: BoxFit.cover,
+        ),
+      ),
+    ));
+  }
+}
+
+```

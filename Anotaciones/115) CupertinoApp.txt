@@ -1,0 +1,24 @@
+Metemos el icon en una columna.
+
+Cambiamos al main de materialapp a un cupertinoapp.
+
+No podemos utilizar el widget (Scaffold)
+
+Creamos el widget MyCupertinoScaffold,
+el widget (CupertinoPageScaffold) es exclusivo de cupertino
+
+- Código de la sección
+```
+import 'package:flutter/cupertino.dart';
+
+class MyCupertinoScaffold extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const CupertinoPageScaffold(
+        child: Center(
+      child: Text('Cupertino'),
+    ));
+  }
+}
+
+```

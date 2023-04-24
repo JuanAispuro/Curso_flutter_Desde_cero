@@ -1,0 +1,55 @@
+Que busque en el cache la imagen y no tenga que volver a cargar,
+
+vamos a usar un paquete de tercero, vamos a pubspect al apartado de dependencias
+
+hacer dependencias de desarrollo solo debe de ponerse en dev_dependencies por que al momento de hacer el build, se van a quitar las dependencias.
+
+Despues de instalar la dependencia cache_network_image la aplicamos.
+
+Es una aplicación que usa código nativo, asi que dejamos la aplicacion y la volvemos a correr.
+
+- Código de la sección
+
+```
+import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
+class MyImagenes extends StatelessWidget {
+  const MyImagenes({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Container(
+            width: 350,
+            color: Colors.grey,
+            height: 500,
+            child: CachedNetworkImage(
+              imageUrl:
+                  "https://static.vecteezy.com/system/resources/previews/020/118/322/original/harrypotter-logo-free-download-free-vector.jpg",
+              placeholder: (_, __) =>
+                  Center(child: CircularProgressIndicator()),
+              errorWidget: (_, __, ___) => Center(child: Icon(Icons.error)),
+            )),
+        // child: Image.network(
+        //     'https://static.vecteezy.com/system/resources/previews/020/118/322/original/harrypotter-logo-free-download-free-vector.jpg',
+        //     loadingBuilder: (_, child, event) {
+        //   if (event == null) {
+        //     return child;
+        //   }
+        //   return const Center(
+        //     child: CircularProgressIndicator(),
+        //   ); //para poner una animación de cargando.,)
+        // }
+        //     // 'assets/images/Star_Wars_Logo.svg.png',
+        //     //fit: BoxFit.cover,
+        //     ),
+      ),
+    );
+  }
+}
+
+
+
+```

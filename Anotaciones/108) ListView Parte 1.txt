@@ -9,7 +9,65 @@ Usamos (padding: EdgeInsets.zero) para que no tengan ningun padding.
 Mejor ListView que el singlechildscrollview para evitar tanto codigo
 igual que singlechildscrollview usa (keyboardDissmissBehavior) para que al hacer scroll se vaya el teclado.
 
-Tenemos un error si metemos el ListView dentro de un column, pero se soluciona si metemos el ListView dentro de un expanded
+Tenemos un error si metemos el ListView dentro de un column, pero se soluciona si metemos el ListView dentro de un expanded.
+
+- Código de la función
+
+```
+// ignore_for_file: prefer_const_constructors
+
+import 'package:flutter/material.dart';
+
+class MyListView extends StatelessWidget {
+  const MyListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            SizedBox(
+                height: 150,
+                child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: List.generate(
+                        18,
+                        (index) => Container(
+                              alignment: Alignment.center,
+                              width: 100,
+                              height: 100,
+                              color: Colors.primaries[index],
+                              child: Text("$index"),
+                            )))),
+            Expanded(
+              child: ListView(
+                children: [
+                  Text("Hi"),
+                  Container(
+                    height: 100,
+                    color: Colors.blue,
+                  ),
+                  Container(
+                    height: 600,
+                    color: Colors.red,
+                  ),
+                  Text("Hi"),
+                  Text("Hi"),
+                  Text("Hi"),
+                  Container(
+                    height: 100,
+                    color: Colors.blue,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
 
-Marco error en el expanded del ListView
+```
